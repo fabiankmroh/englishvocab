@@ -1,7 +1,7 @@
 # Commit Log for Each Day
 
 ## September 2nd
-* Played w/ 'manage.py' API
+* Played w/ `manage.py` API
 
 ### Reflection:
 After `sqlmigrate`, always delete `db.sqlite3` and other files in the `migrations` folder in the Startapp folder.
