@@ -2,10 +2,11 @@
 <ul>
   {% for vocab in rVocabL %}
   <li>
-    <a href = "{% url 'detail' vocab.id %}">{{vocab.vocabTxt}}
-  </a></li>
+    <a href = "{% url 'detail' vocab.id %}">{{vocab.vocabTxt}}</a>
+  </li>
   {% endfor %}
 </ul>
+<a href= "{% url 'insert' %}">[Insert New Vocabulary]</a>
 {% else %}
   <p>Vocab is not available.</p>
 {% endif %}

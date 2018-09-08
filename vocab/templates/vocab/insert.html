@@ -1,0 +1,8 @@
+<h1>Vocabulary Insertion</h1>
+
+<form action="{% url 'vocab_insert' %}" method="post">
+  {% csrf_token %}
+  Vocab: <br>
+  <input type = "text" name = "vocab"><br>
+  <input type = "submit" value = "Submit">
+</form>

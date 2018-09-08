@@ -1,7 +1,14 @@
-<h1>{{ vocab.vocabTxt }}</h1>
-
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
+<h1>{{ vocab.vocabTxt }}</h1>
+<ul>
+{% for definition in definition_set %}
+  <li><h2>{{ definition.defTxt }}</h2></li>
+{% endfor %}
+</ul>
+
+
+{% comment %}
 <form action = "{% url 'vocab:definition' vocab.id %}" method="post">
 {% csrf_token %}
 {% for vocab in vocab.definition_set.all %}
@@ -10,3 +17,4 @@
 {% endfor %}
 <input type = "Register" value = "Definition">
 </form>
+{% endcomment %}
