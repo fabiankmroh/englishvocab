@@ -7,6 +7,12 @@
 {% endfor %}
 </ul>
 
+<form action = "{% url 'detail' %}" method = "post">
+  {% csrf_token %}
+  [Add Definition]<br>
+  <input type = "text" name = "definition"><br>
+  <input type = "submit" value = "Submit">
+</form>
 
 {% comment %}
 <form action = "{% url 'vocab:definition' vocab.id %}" method="post">

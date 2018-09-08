@@ -11,8 +11,11 @@ def index(request):
     return render(request, 'vocab/index.html', context)
 
 def detail(request, vocab_id):
-    vocab = get_object_or_404(Vocab, pk = vocab_id)
+    vocab = Vocab.objects.get(pk = vocab_id)
     definition_set = vocab.definition_set.all()
+
+    definition_set.create(defTxt=request.POST['definition'],wrongC = 0)
+
     return render(request, 'vocab/detail.html', {'vocab':vocab, 'definition_set':definition_set})
 
 def insert(request):
@@ -20,7 +23,7 @@ def insert(request):
 
 def vocab_insert(request):
     Vocab.objects.create(vocabTxt=request.POST['vocab'],pub_date=timezone.now())
-    
+
     rVocabL = Vocab.objects.order_by('-pub_date')
     context = { 'rVocabL': rVocabL}
     return render(request, 'vocab/index.html',context)
