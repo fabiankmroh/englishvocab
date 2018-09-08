@@ -1,16 +1,14 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, Http404
 from django.template import loader
 
 from .models import Vocab
 
 def index(request):
     rVocabL = Vocab.objects.order_by('-pub_date')[:5]
-    template = loader.get_template('vocabs/index.html')
-    context = {
-        'rVocabL' : rVocabL,
-    }
-    return HttpResponse(template.render(context, request))
+    context = { 'rVocabL' : rVocabL }
+    return render(request, 'vocab/index.html', context)
 
-def vocab(request, vocab_id):
-    return HttpResponse("Word: %s" % vocab_id)
+def detail(request, vocab_id):
+    vocab = get_object_or_404(Vocab, pk = vocab_id)
+    return render(request, 'vocab/detail.html', {'vocab':vocab})

@@ -1,0 +1,12 @@
+<h1>{{ vocab.vocabTxt }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action = "{% url 'vocab:definition' vocab.id %}" method="post">
+{% csrf_token %}
+{% for vocab in vocab.definition_set.all %}
+  <input type = "text" name="definition" id="definition{{ forloop.counter }}" value = "{{ definition.id }}">
+  <label for = "definition{{ forloop.counter }}">{{ definition.defTxt }}</label><br>
+{% endfor %}
+<input type = "Register" value = "Definition">
+</form>
