@@ -1,5 +1,15 @@
 # Commit Log for Each Day
 
+## September 7th
+* Tried & Failed to Write a Form to Add New Words to the DB
+* Clean the Messed Up Files (Some files were way enhanced by the tutorial, while the other files were very confusing to enhance)
+*Will Refer to Djangogirls Tutorial to Examine How Forms(and its corresponding templates) Work*
+
+## September 6th
+* Added `Raising 404 Error`
+* Removed Hardcoded URLs in `index.html` File
+**Starts to get confused between Linking Views & Template**
+
 ## September 5th
 * Created Templates
 * Edited Views to load Templates (used `render()`)
