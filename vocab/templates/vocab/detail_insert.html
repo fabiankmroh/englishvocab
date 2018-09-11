@@ -1,0 +1,8 @@
+<h1> Add Definition </h1>
+
+<form action = "{% url 'detail_insert_save' vocab_id %}" method = "post">
+  {% csrf_token %}
+  [Add Definition]<br>
+  <input type = "text" name = "definition"><br>
+  <input type = "submit" value = "Submit">
+</form>
