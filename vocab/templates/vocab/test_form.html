@@ -1,0 +1,7 @@
+<h2>definition</h2>
+
+<form action = "{% url 'test_submit' %}" method="post">
+  {% csrf_token %}
+  <input type = "text" name = "vocab"><br>
+  <input type = "submit" name = "submit">
+</form>

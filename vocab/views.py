@@ -41,4 +41,18 @@ def detail_insert_save(request, vocab_id):
     return render(request, 'vocab/detail.html', {'vocab':vocab, 'definition_set': vocabD, 'vocab_id':vocab_id})
 
 def test_start(request):
-    
+    return render(request, 'vocab/test_start.html', {'Vpk':Vpk, 'Dpk':Dpk})
+
+def test_form(request):
+    Vpk = random.randint(1,vocab.Objects.all().len())
+    Dpk = 1
+    vocab = Vocab.objects.get(pk = Vpk)
+    definition = vocab.definition_set.get(pk = Dpk)
+    return render(request, 'vocab/test_form.html', {'definition':definition, 'Vpk':Vpk, 'Dpk':Dpk})
+
+def test_submit(request, Vpk, Dpk):
+    vocab = Vocab.objects.get(pk = Vpk)
+    definition = vocab.definition_set.get(pk = Dpk)
+    if(request.POST['vocab'] != vocab):
+        definition.wrongC += 1
+        

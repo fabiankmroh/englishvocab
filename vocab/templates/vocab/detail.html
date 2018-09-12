@@ -8,16 +8,3 @@
 </ul>
 
 <a href = "{% url 'detail_insert' vocab_id %}">[ Insert New Definition ]</a><br>
-
-
-
-{% comment %}
-<form action = "{% url 'vocab:definition' vocab.id %}" method="post">
-{% csrf_token %}
-{% for vocab in vocab.definition_set.all %}
-  <input type = "text" name="definition" id="definition{{ forloop.counter }}" value = "{{ definition.id }}">
-  <label for = "definition{{ forloop.counter }}">{{ definition.defTxt }}</label><br>
-{% endfor %}
-<input type = "Register" value = "Definition">
-</form>
-{% endcomment %}
