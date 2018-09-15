@@ -7,6 +7,7 @@
   {% endfor %}
 </ul>
 <a href= "{% url 'insert' %}">[Insert New Vocabulary]</a>
+<a href = "{% url 'test_start' Vpk Dpk %}">[ Test ]</a><br>
 {% else %}
   <p>Vocab is not available.</p>
 {% endif %}
